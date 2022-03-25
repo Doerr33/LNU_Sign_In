@@ -1,0 +1,15 @@
+.signDetail{
+    display: flex;
+    padding: 50rpx;
+}
+.signDetailContent{
+    margin-left: 30rpx;
+    line-height: 40rpx;
+}
+.QRCode{
+    width: 500rpx;
+    height: 500rpx;
+    background-color: red;
+    margin: 0 auto;
+    margin-top: 10rpx;
+}

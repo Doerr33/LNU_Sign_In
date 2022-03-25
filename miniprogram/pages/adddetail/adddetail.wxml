@@ -1,0 +1,35 @@
+<view class="cu-bar bg-white">
+	<view class="action">
+		<text class="cuIcon-noticefill text-green"></text>
+		<text class="text-l text-bold">请填写你的个人信息，用于签到使用</text>
+	</view>
+</view>
+<view class="signInCreate text-xl">
+	<view class="cu-form-group margin-top">
+		<view class="title"><text class="cuIcon-edit text-green"></text>姓名:</view>
+		<input bindinput="InputName" placeholder="例如:小明"></input>
+	</view>
+	<view class="cu-form-group margin-top">
+		<view class="title"><text class="cuIcon-home text-blue"></text>学院:</view>
+		<input bindinput="InputCollege" placeholder="例如:信息学院"></input>
+	</view>
+	<view class="cu-form-group margin-top">
+		<view class="title"><text class="cuIcon-pick text-purple"></text>专业:</view>
+		<input bindinput="InputProfessional" placeholder="例如:计科"></input>
+	</view>
+	<view class="cu-form-group margin-top">
+		<view class="title"><text class="cuIcon-phone text-yellow"></text>联系方式:</view>
+		<input bindinput="InputPhone" type="number" placeholder="电话号码"></input>
+	</view>
+	
+	<view class="cu-form-group margin-top">
+		<view class="title"><text class="cuIcon-group text-red"></text>年级:</view>
+		<picker bindchange="PickerChange" value="{{index}}" range="{{picker}}">
+			<view class="picker">
+				{{index?picker[index]:'大一到大四或研究生'}}
+			</view>
+		</picker>
+	</view>
+	<button disabled="{{buttonDisable}}" bindtap="publish" class="cu-btn block line-green lg margin-top">
+		<text class="cuIcon-upload"></text> 创建</button>
+</view>

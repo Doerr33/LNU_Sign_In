@@ -1,0 +1,31 @@
+page{
+    background-color: rgb(228, 228, 228);
+}
+.imageAdd{
+    z-index: 9999;
+    position: fixed;
+    bottom: 200rpx;
+    right: 0;
+}
+.imageAdd image{
+    width: 100rpx;
+    height: 100rpx;
+}
+.signMine{
+    width: 730rpx;
+    background-color: white;
+    margin: 0 auto;
+    margin-top: 20rpx;
+    border-radius: 10rpx;
+}
+.detail{
+    background-color: green;
+    color: white;
+    font-size: 20rpx;
+    width: 120rpx;
+    height: 60rpx;
+    text-align: center;
+    line-height: 60rpx;
+    margin: 0 auto;
+    border-radius: 10rpx;
+}

@@ -1,0 +1,119 @@
+<view class="cu-bar bg-white solid-bottom">
+    <view class='action'>
+        <text class='cuIcon-titles text-green '></text> 签到详情
+    </view>
+</view>
+<view class="cu-card">
+    <view class="cu-item shadow">
+        <view class="cu-list menu-avatar">
+            <view class="signDetail">
+                <view class="cu-avatar round lg">
+                    <image mode="widthFix" src="{{signInDetail.userInfo.avatarUrl}}"></image>
+                </view>
+                <view class="signDetailContent">
+                    <view class="text-blue">签到名称:{{signInDetail.title}}</view>
+                    <view wx:if="{{signInDetail.location.name}}" class="text-black text-sm flex justify-between">
+                        签到地点:{{signInDetail.location.name}}
+                    </view>
+                    <view wx:else class="text-black text-sm flex justify-between">
+                        签到地点:自定义地点
+                    </view>
+                    <view class="text-black text-sm flex justify-between">
+                        创建人:{{signInDetail.creator}}
+                    </view>
+                    <view class="text-black text-sm flex justify-between">
+                        创建时间:{{signInDetail.time}}
+                    </view>
+                    <view class="text-black text-sm flex justify-between">
+                        签到距离:{{signInDetail.distance}}
+                    </view>
+                    <view class="text-black text-sm flex justify-between">
+                        签到日期:{{signInDetail.date}}
+                    </view>
+                    <view class="text-black text-sm flex justify-between">
+                        开始时间:{{signInDetail.startTime}}
+                    </view>
+                    <view class="text-black text-sm flex justify-between">
+                        结束时间:{{signInDetail.endTime}}
+                    </view>
+                </view>
+            </view>
+            <view class="signDetailButtom">
+                <view class="grid col-2 padding-sm">
+                    <view class=" text-center" wx:key>
+                        <button bindtap="getUnlimited" class="margin-tb-sm cu-btn round bg-blue shadow" style="width: 200rpx;">签到二维码</button>
+                    </view>
+                    <view class="margin-tb-sm text-center">
+                        <button bindtap="inputData" class="cu-btn round bg-blue shadow" style="width: 200rpx;">导入数据</button>
+                    </view>
+                    <view class="margin-tb-sm text-center">
+                        <button class="cu-btn round bg-green shadow" style="width: 200rpx;">手动补签</button>
+                    </view>
+                    <view class="margin-tb-sm text-center">
+                        <button class="cu-btn round bg-yellow shadow" style="width: 200rpx;">导出表格</button>
+                    </view>
+                    <view class="margin-tb-sm text-center">
+                        <button class="cu-btn round bg-orange shadow" style="width: 200rpx;">修改签到</button>
+                    </view>
+                    <view class="margin-tb-sm text-center">
+                        <button class="cu-btn round bg-red shadow" style="width: 200rpx;">解散签到</button>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+</view>
+<view class="cu-card">
+    <tabs tabs="{{tabs}}" bindtabsChange="tabsChange"></tabs>
+    <block wx:if = "{{tabs[1].isActive}}">
+        <view style="margin-top: 5rpx;" class="cu-list menu-avatar" wx:for="{{signInDetail.members}}">
+            <view class="cu-item">
+                <view class="cu-avatar radius lg">
+                    <image mode="widthFix" src="{{item.userInfo.avatarUrl}}"></image>
+                </view>
+                <view class="content">
+                    <view>
+                        <text class="text-cut">{{item.youName}}</text>
+                        <view class="cu-tag round bg-blue sm">{{item.collage}}</view>
+                    </view>
+                    <view class="text-black text-sm flex">
+                        <text class="text-cut">{{item.grade}}{{item.professional}}</text>
+                    </view>
+                </view>
+                <view class="action">
+                    <view class="text-green text-x">已签到</view>
+                </view>
+            </view>
+        </view>
+    </block>
+    <block wx:if = "{{tabs[0].isActive}}">
+        <view class="cu-list menu-avatar">
+            <view class="cu-item">
+                <view class="cu-avatar radius lg">
+                    <image mode="widthFix" src="cloud://lingisme9-8gfov2qdc4af131a.6c69-lingisme9-8gfov2qdc4af131a-1302591379/unlimited.jpg"></image>
+                </view>
+                <view class="content">
+                    <view>
+                        <text class="text-cut">朱领</text>
+                        <view class="cu-tag round bg-blue sm">信息学院</view>
+                    </view>
+                    <view class="text-black text-sm flex">
+                        <text class="text-cut">2018级计算机科学与技术</text>
+                    </view>
+                </view>
+                <view class="action">
+                    <view class="text-red text-x">未签到</view>
+                </view>
+            </view>
+        </view>
+    </block>
+</view>
+<view class="cu-modal {{showModal?'show':''}}">
+    <view class="cu-dialog">
+        <image style="height: 500rpx; width: 500rpx; margin:40rpx;" mode="aspectFill" src="{{fileID}}"></image>
+        <view class="cu-bar bg-white">
+            <view class="action margin-0 flex-sub  solid-left" bindtap="hideModal">确定</view>
+        </view>
+    </view>
+</view>

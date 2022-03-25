@@ -1,0 +1,32 @@
+page {
+  background-image: url(https://img1.baidu.com/it/u=1862802233,2698050708&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=889);
+}
+
+.login {
+  margin-top: 200rpx;
+  text-align: center;
+}
+
+.login .userInfo {
+  width: 100rpx;
+  height: 100rpx;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+
+.login .nickName {
+  margin-top: 10rpx;
+}
+
+.login .loginText {
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.Copyright {
+  position: absolute;
+  bottom: 40rpx;
+  color: gray;
+  text-align: center;
+  width: 100%;
+}

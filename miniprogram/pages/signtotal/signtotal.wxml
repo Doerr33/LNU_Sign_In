@@ -1,0 +1,125 @@
+<view class="imageAdd" bindtap="toSignAdd">
+    <image src="https://service-2s4emiem-1301257241.hk.apigw.tencentcs.com/release/WuRenKG/15%E9%A1%B9%E7%9B%AE%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90/01%E5%9B%BE%E6%A0%87/%E6%B7%BB%E5%8A%A0_%E5%A1%AB%E5%85%85.png"></image>
+</view>
+<tabs tabs="{{tabs}}" bindtabsChange="tabsChange">
+    <block wx:if="{{tabs[0].isActive}}">
+        <view wx:for-index="idx" wx:if="{{signList}}" class="cu-list menu signMine" wx:for="{{signList}}">
+            <view class="cu-item">
+                <view class="content">
+                    <text class="cuIcon-titles text-green"></text>
+                    <text class="text-black">签到名称:</text>
+                </view>
+                <view class="action">
+                    <text class="text-black text-sm">{{item.title}}</text>
+                </view>
+            </view>
+            <view class="cu-item">
+                <view class="content">
+                    <text class="cuIcon-locationfill text-blue"></text>
+                    <text class="text-black">签到地点:</text>
+                </view>
+                <view class="action">
+                    <text wx:if="{{item.location.name}}" class="text-black text-sm">{{item.location.name}}</text>
+                    <text wx:else class="text-black text-sm">自定义地点</text>
+                </view>
+            </view>
+            <view class="cu-item">
+                <view class="content">
+                    <text class="cuIcon-peoplefill text-red"></text>
+                    <text class="text-black">创建人:</text>
+                </view>
+                <view class="action">
+                    <text class="text-black text-sm">{{item.creator}}</text>
+                </view>
+            </view>
+            <view class="cu-item">
+                <view class="content">
+                    <text class="cuIcon-timefill text-black"></text>
+                    <text class="text-black">创建时间:</text>
+                </view>
+                <view class="action">
+                    <text class="text-black text-sm">{{item.time}}</text>
+                </view>
+            </view>
+            <view class="cu-item">
+                <view class="content">
+                    <text class="cuIcon-warnfill text-red"></text>
+                    <text class="text-black">签到期限</text>
+                </view>
+                <view class="action">
+                    <text class="text-black text-sm">{{item.date}}--{{item.startTime}}--{{item.endTime}}</text>
+                </view>
+            </view>
+            <view class="cu-item">
+                <view class="content">
+                    <text class="cuIcon-btn text-yellow"></text>
+                    <text class="text-black">点击进入</text>
+                </view>
+                <view bindtap="toDetail" class="action" data-index ="{{idx}}">
+                    <button  style="width: 150rpx;" class="cu-btn round bg-green shadow">
+                    <text class="cuIcon-edit"></text>详情</button>
+                </view>
+            </view>
+        </view>
+        
+    </block>
+    <block wx:if="{{tabs[1].isActive}}">
+        <view class="cu-list menu signMine">
+            <view class="cu-item">
+                <view class="content">
+                    <text class="cuIcon-titles text-green"></text>
+                    <text class="text-black">签到名称:</text>
+                </view>
+                <view class="action">
+                    <text class="text-black text-sm">篮球赛观众</text>
+                </view>
+            </view>
+            <view class="cu-item">
+                <view class="content">
+                    <text class="cuIcon-locationfill text-blue"></text>
+                    <text class="text-black">签到地点:</text>
+                </view>
+                <view class="action">
+                    <text class="text-black text-sm">小篮球场</text>
+                </view>
+            </view>
+            <view class="cu-item">
+                <view class="content">
+                    <text class="cuIcon-peoplefill text-red"></text>
+                    <text class="text-black">创建人:</text>
+                </view>
+                <view class="action">
+                    <text class="text-black text-sm">Doerr</text>
+                </view>
+            </view>
+            <view class="cu-item">
+                <view class="content">
+                    <text class="cuIcon-timefill text-black"></text>
+                    <text class="text-black">创建时间:</text>
+                </view>
+                <view class="action">
+                    <text class="text-black text-sm">创建时间</text>
+                </view>
+            </view>
+            <view class="cu-item">
+                <view class="content">
+                    <text class="cuIcon-warnfill text-red"></text>
+                    <text class="text-black">签到期限</text>
+                </view>
+                <view class="action">
+                    <text class="text-black text-sm">篮球赛观众</text>
+                </view>
+            </view>
+            <view class="cu-item">
+                <view class="content">
+                    <text class="cuIcon-btn text-yellow"></text>
+                    <text class="text-black">点击进入</text>
+                </view>
+                <view class="action">
+                    <button bindtap="toDetail" style="width: 150rpx;" class="cu-btn round bg-green shadow">
+                    <text class="cuIcon-edit"></text>详情</button>
+                </view>
+            </view>
+        </view>
+    </block>
+</tabs>

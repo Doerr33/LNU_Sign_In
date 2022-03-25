@@ -1,0 +1,15 @@
+<view class="login">
+  <view class="userInfo">
+    <open-data type="userAvatarUrl"></open-data>
+  </view>
+  <view class="nickName">
+    <!-- 这个接口要废弃了 -->
+    <open-data type="userNickName"></open-data>
+  </view>
+  <view class="loginText">登录小程序, 体验更多功能 ~ </view>
+</view>
+<button bindtap="getUserInfo" type="default">授权登录</button>
+
+<view class="Copyright">
+ Copyright © 2022 by Doerr | 辽宁大学 | 信息学院
+</view>

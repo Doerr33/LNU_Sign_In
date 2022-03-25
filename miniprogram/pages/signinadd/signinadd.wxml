@@ -1,0 +1,54 @@
+<view class="cu-bar bg-white">
+	<view class="action">
+		<text class="cuIcon-noticefill text-green"></text>
+		<text class="text-l text-bold">创建签到</text>
+	</view>
+</view>
+<view class="signInCreate text-xl">
+	<view class="cu-form-group margin-top">
+		<view class="title"><text class="cuIcon-edit text-green"></text> 签到名称:</view>
+		<input bindinput="InputTitle" placeholder="例如:篮球赛"></input>
+	</view>
+	<view class="cu-form-group margin-top" bindtap="chooseLocation">
+		<view class="title text-cut">
+		<text class="cuIcon-location text-red"></text>
+		签到地点:<text wx:if="{{location.name}}">{{location.name}}</text> 
+		<text wx:if="{{location.errMsg && !location.address}}">已选择自定义位置</text> 
+		</view>
+		<text class="cuIcon-locationfill text-green"></text>
+	</view>
+	<view class="cu-form-group margin-top">
+		<view class="title"><text class="cuIcon-wifi text-blue"></text>签到距离:</view>
+		<picker bindchange="PickerChange" value="{{index}}" range="{{picker}}">
+			<view class="picker">
+				{{index?picker[index]:'通过距离判断能否签到'}}
+			</view>
+		</picker>
+	</view>
+	<view class="cu-form-group margin-top">
+		<view class="title"><text class="cuIcon-calendar text-purple"></text>签到日期选择:</view>
+		<picker mode="date" value="{{date}}" bindchange="DateChange">
+			<view class="picker">
+				{{date}}
+			</view>
+		</picker>
+	</view>
+	<view class="cu-form-group margin-top">
+		<view class="title"><text class="cuIcon-time text-green"></text>开始时间:</view>
+		<picker mode="time" value="{{startTime}}" start="09:01" end="21:01" bindchange="TimeChangeStart">
+			<view class="picker">
+				{{startTime}}
+			</view>
+		</picker>
+	</view>
+	<view class="cu-form-group margin-top">
+		<view class="title"><text class="cuIcon-time text-red"></text>结束时间:</view>
+		<picker mode="time" value="{{endTime}}" start="09:01" end="21:01" bindchange="TimeChangeEnd">
+			<view class="picker">
+				{{endTime}}
+			</view>
+		</picker>
+	</view>
+	<button disabled="{{buttonDisable}}" bindtap="publish" class="cu-btn block line-green lg margin-top">
+		<text class="cuIcon-upload"></text> 创建</button>
+</view>
