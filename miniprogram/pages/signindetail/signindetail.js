@@ -136,7 +136,8 @@ Page({
         wx.cloud.callFunction({
             name:'parseExcel',
             data:{
-                fileID:fileId
+                fileID:fileId,
+                creatId:this.data.signInDetail.creatId
             },
             success(res){
                 console.log("解析上传成功");

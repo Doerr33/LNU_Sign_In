@@ -83,6 +83,7 @@ Page({
     async dealDate(createID) {
         return new Promise((resolve, reject) => {
             let members = this.data.activity.members;
+           
             console.log("this.data.members", members);
             let flat = false;
             console.log("before update", members);
@@ -90,7 +91,19 @@ Page({
                 if (this.data.userInfo.openid == members[i].userInfo.openid) {
                     flat = true
                 }
+                for(let j = 0; j < this.data.activity.membersPre.length; j++){
+                    console.log("我进来比对了")
+                    if(this.data.activity.members[i].youName == this.data.activity.membersPre[j].name){
+                        this.data.activity.membersPre.pop(this.data.activity.membersPre[j])
+                    }
+                }
+                membersPre = this.data.activity.membersPre;
+                this.setData({
+                    membersPre
+                })
             }
+            
+        
             if (!flat) {
                 resolve("更新")
                 this.updateMembers(createID)

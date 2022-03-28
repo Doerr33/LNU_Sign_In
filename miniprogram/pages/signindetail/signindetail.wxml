@@ -67,7 +67,7 @@
 <view class="cu-card">
     <tabs tabs="{{tabs}}" bindtabsChange="tabsChange"></tabs>
     <block wx:if = "{{tabs[1].isActive}}">
-        <view style="margin-top: 5rpx;" class="cu-list menu-avatar" wx:for="{{signInDetail.members}}">
+        <view style="margin-top: 0;" class="cu-list menu-avatar" wx:for="{{signInDetail.members}}">
             <view class="cu-item">
                 <view class="cu-avatar radius lg">
                     <image mode="widthFix" src="{{item.userInfo.avatarUrl}}"></image>
@@ -88,18 +88,18 @@
         </view>
     </block>
     <block wx:if = "{{tabs[0].isActive}}">
-        <view class="cu-list menu-avatar">
+        <view wx:for="{{signInDetail.membersPre}}" style="margin-top: 0;" class="cu-list menu-avatar">
             <view class="cu-item">
                 <view class="cu-avatar radius lg">
-                    <image mode="widthFix" src="cloud://lingisme9-8gfov2qdc4af131a.6c69-lingisme9-8gfov2qdc4af131a-1302591379/unlimited.jpg"></image>
+                    <image mode="widthFix" src="https://img1.baidu.com/it/u=890323385,2484921717&fm=26&fmt=auto"></image>
                 </view>
                 <view class="content">
                     <view>
-                        <text class="text-cut">朱领</text>
-                        <view class="cu-tag round bg-blue sm">信息学院</view>
+                        <text class="text-cut">{{item.name}}</text>
+                        <view class="cu-tag round bg-blue sm">{{item.college}}</view>
                     </view>
                     <view class="text-black text-sm flex">
-                        <text class="text-cut">2018级计算机科学与技术</text>
+                        <text class="text-cut">{{item.profession}}</text>
                     </view>
                 </view>
                 <view class="action">
