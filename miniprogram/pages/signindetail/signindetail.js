@@ -133,6 +133,14 @@ Page({
         })
     },
     parsXls(fileId){
+        let membersPre = this.data.signInDetail.membersPre;
+        if(membersPre !== null){
+            wx.showToast({
+              icon:'none',
+              title: '请勿重复导入',
+            })
+            return;
+        }
         wx.cloud.callFunction({
             name:'parseExcel',
             data:{
